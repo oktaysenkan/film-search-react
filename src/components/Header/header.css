@@ -1,0 +1,13 @@
+.header {
+  padding: 20px;
+  width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.text-input {
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #000;
+}
