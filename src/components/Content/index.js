@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import './content.css';
 
 export class Content extends Component {
 
@@ -11,19 +10,19 @@ export class Content extends Component {
 
     if (fetching) {
       return(
-      <div className="container">
+      <div className="container center-text">
         <h1>Loading...</h1>
       </div>
         )
     }
 
-    else if (error) {
-      return(<div className="container">
+    if (error) {
+      return(<div className="container center-text">
         <h1>{ error }</h1>
         </div>)
     }
 
-    else if (fetched) {
+    if (fetched) {
       return(
         <div className="container">
           <div className="title">
@@ -58,7 +57,7 @@ export class Content extends Component {
       )
     }
 
-    else return (<div></div>)
+    return (<div></div>)
 
   }
 }

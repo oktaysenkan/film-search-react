@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { searchMovie, fetchMovieLoaded, fetchMovieError } from '../../actions'
-import './header.css'
+import { searchMovie, fetchMovieError } from '../../actions'
 
 export class Header extends Component {
 
@@ -15,20 +14,6 @@ export class Header extends Component {
 
   searchInputOnSubmit = () => {
     this.props.dispatch(searchMovie(this.state.searchText))
-    fetch('http://www.omdbapi.com/?apikey=e07755b7&t=' + decodeURI(this.state.searchText))
-    .then(response => response.json()) 
-    .then(json => {
-      console.log(json.Response === "True");
-
-      if (json.Response === "True") {
-        this.props.dispatch(fetchMovieLoaded(json))
-      } else {
-        this.props.dispatch(fetchMovieError(json.Error))
-      }
-    })
-    .catch(error => {
-      this.props.dispatch(fetchMovieError(error.toString()))
-    })
   }
 
   searchInputOnChanged = (e) => {
@@ -53,7 +38,7 @@ export class Header extends Component {
         <input className="text-input" 
         onKeyPress={this.searchInputKeyPressed}
         onChange={this.searchInputOnChanged}  
-        placeholder="Film ismini giriniz."
+        placeholder="Ara"
         type="text" />
       </div>
     )

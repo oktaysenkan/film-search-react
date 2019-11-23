@@ -10,8 +10,11 @@ const search = (state = defaultState, action) => {
       return {
         ...state,
         searchText: action.searchText,
-        fetched: false,
-        fetching: true
+      }
+    case 'FETCH_MOVIE_STARTED':
+      return {
+        ...state,
+        fetching: true,
       }
     case 'FETCH_MOVIE_LOADED':
       return {

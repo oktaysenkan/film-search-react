@@ -1,0 +1,137 @@
+@font-face {
+  font-family: 'Product Sans';
+  src: url('./assets/fonts/ProductSans-Regular.woff2') format('woff2'), url('./assets/fonts/ProductSans-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Product Sans';
+  src: url('./assets/fonts/ProductSans-Light.woff2') format('woff2'), url('./assets/fonts/ProductSans-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Product Sans';
+  src: url('./assets/fonts/ProductSans-Medium.woff2') format('woff2'), url('./assets/fonts/ProductSans-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+body, html, #root, .App{
+  height: 100%;
+  font-family: 'Product Sans', sans-serif;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  padding: 20px;
+  width: 550px;
+  text-align: center;
+  
+  .text-input {
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #000;
+  }
+}
+
+.container {
+  font-weight: normal;
+  width: 550px;
+  display: flex;
+  justify-content: center; /* center items vertically, in this case */
+  flex-direction: column;
+  padding: 20px;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+
+  .rating {
+    display: flex;
+    padding: 13px;
+    background: #000;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+    margin-right: 20px;
+    align-items: center;
+  }
+
+  .film-name {
+    font-weight: 500;
+    font-size: 48px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.info {
+  display: flex;
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 17px;
+  color: #C6C6C5;
+
+  .year{
+    margin-right: 24px;
+  }
+
+  .time{
+    margin-right: 24px;
+  }
+}
+
+.plot {
+  margin-top: 15px;
+  font-weight: 300;
+  color: #474747;
+  font-size: 16px;
+}
+
+.actors {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+
+  b {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  span{
+    margin-top: 10px;
+    font-weight: 300;
+    color: #474747;
+  }
+}
+
+.director {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+
+  b {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  span {
+    margin-top: 10px;
+    font-weight: 300;
+    color: #474747;
+  }
+}
+
+
+.center-text {
+  text-align: center;
+}
