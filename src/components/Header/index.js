@@ -1,56 +1,64 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { searchMovie, fetchMovieError } from '../../actions'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { searchMovie, fetchMovieError } from '../../actions';
 
 export class Header extends Component {
-
-  constructor(props){
+  constructor(props) {
     super(props);
-    
+
     this.state = {
-      searchText: null
-    }
+      searchText: null,
+    };
+
+    this.searchInputKeyPressed = this.searchInputKeyPressed.bind(this);
+    this.searchInputOnChanged = this.searchInputOnChanged.bind(this);
   }
 
-  searchInputOnSubmit = () => {
-    this.props.dispatch(searchMovie(this.state.searchText))
+  searchInputOnSubmit() {
+    const { dispatch } = this.props;
+    const { searchText } = this.state;
+    dispatch(searchMovie(searchText));
   }
 
-  searchInputOnChanged = (e) => {
+  searchInputOnChanged(e) {
     this.setState({
-      searchText: e.target.value
+      searchText: e.target.value,
     });
   }
 
-  searchInputKeyPressed = (e) => {
-    if (e.key === "Enter"){
-      if (!this.state.searchText) {
-        this.props.dispatch(fetchMovieError("Film adı boş bırakılamaz."))
+  searchInputKeyPressed(e) {
+    const { dispatch } = this.props;
+    const { searchText } = this.state;
+
+    if (e.key === 'Enter') {
+      if (!searchText) {
+        dispatch(fetchMovieError('Film adı boş bırakılamaz.'));
         return;
       }
 
-      this.searchInputOnSubmit()
+      this.searchInputOnSubmit();
     }
   }
 
   render() {
     return (
       <div className="header">
-        <input className="text-input" 
-        onKeyPress={this.searchInputKeyPressed}
-        onChange={this.searchInputOnChanged}  
-        placeholder="Ara"
-        type="text" />
+        <input
+          className="text-input"
+          onKeyPress={this.searchInputKeyPressed}
+          onChange={this.searchInputOnChanged}
+          placeholder="Ara"
+          type="text"
+        />
       </div>
-    )
+    );
   }
 }
 
-function mapStateToProps(state){
+function mapStateToProps(state) {
   return {
-      search: state.search,
-  }
+    search: state.search,
+  };
 }
 
-
-export default connect(mapStateToProps)(Header)
+export default connect(mapStateToProps)(Header);

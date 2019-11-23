@@ -1,39 +1,35 @@
-var defaultState = {
-  fetching: false,
-  fetched: false,
-  payload: {}
-}
+const defaultState = { fetching: false, fetched: false, payload: {} };
 
 const search = (state = defaultState, action) => {
   switch (action.type) {
     case 'SEARCH_MOVIE':
-      return {
+      return ({
         ...state,
         searchText: action.searchText,
-      }
+      });
     case 'FETCH_MOVIE_STARTED':
-      return {
+      return ({
         ...state,
         fetching: true,
-      }
+      });
     case 'FETCH_MOVIE_LOADED':
-      return {
+      return ({
         ...state,
         fetching: false,
         fetched: true,
         error: null,
-        payload: action.payload
-      }
+        payload: action.payload,
+      });
     case 'FETCH_MOVIE_ERROR':
-      return {
+      return ({
         ...state,
         fetching: false,
         fetched: false,
-        error: action.error
-      }
+        error: action.error,
+      });
     default:
-      return state
+      return (state);
   }
-}
+};
 
-export default search
+export default search;
