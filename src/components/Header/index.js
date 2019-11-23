@@ -26,9 +26,10 @@ export class Header extends Component {
     if (e.key === "Enter"){
       if (!this.state.searchText) {
         this.props.dispatch(fetchMovieError("Film adı boş bırakılamaz."))
-      } else {
-        this.searchInputOnSubmit()
+        return;
       }
+
+      this.searchInputOnSubmit()
     }
   }
 
